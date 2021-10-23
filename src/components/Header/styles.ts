@@ -4,20 +4,22 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   background-color: ${({theme}) => theme.colors.white};
   width: 100%;
-  min-height: ${mvs(58)}px;
+  max-height: ${mvs(60)}px;
   flex-direction: row;
 `;
 
-export const Icon = styled.Image``;
-
 export const ContainerLogo = styled.View`
-  background-color: ${({theme}) => theme.colors.purple};
-  align-items: center;
+  width: 100%;
+
   justify-content: center;
-  padding-horizontal: ${mvs(15)}px;
+  padding-horizontal: ${mvs(20)}px;
 `;
 
-export const Logo = styled.Image``;
+export const Logo = styled.Image`
+  max-width: ${mvs(120)}px;
+  max-height: ${mvs(60)}px;
+  object-fit: contain;
+`;
 
 export const ContainerCollapsed = styled.View`
   background-color: ${({theme}) => theme.colors.light_grey};

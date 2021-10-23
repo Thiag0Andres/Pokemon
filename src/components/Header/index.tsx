@@ -1,25 +1,37 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {Collapse} from '../';
-import {Strings} from './strings';
+import {InputForm} from '../';
 import {
   Container,
-  Title,
   ContainerLogo,
   Logo,
   ContainerCollapsed,
   Row,
 } from './styles';
 
-/* const closeIcon = require('../../assets/icons/close.png');
-const logoIcon = require('../../assets/icons/logo.png');
-const {} = require('../../assets/icons/my-signature.png');
- */
-const Header: React.FC = () => {
+interface Props {
+  setSearchText: any;
+}
+
+const Header: React.FC<Props> = ({setSearchText}: Props) => {
+  const [textInput, setTextInput] = useState<string>('');
+
+  const handleChangeText = useCallback(() => {
+    setSearchText(textInput);
+  }, [setSearchText, textInput]);
+
   const renderCollapsed = (
     <ContainerCollapsed>
       <Row>
-        <Logo source={{}} />
-        <Title>{Strings.MY_SIGNATURE}</Title>
+        <InputForm
+          placeholder="Digite o nome do Pokémon"
+          textInputProps={{
+            value: textInput,
+          }}
+          onValueChange={text => setTextInput(text)}
+          icon={require('../../assets/icons/search.png')}
+          onIconPress={handleChangeText}
+        />
       </Row>
     </ContainerCollapsed>
   );
@@ -27,12 +39,12 @@ const Header: React.FC = () => {
   return (
     <Collapse
       type="buttonPress"
-      iconCollapsible={{}}
-      iconNotCollapsible={{}}
+      iconCollapsible={require('../../assets/icons/search.png')}
+      iconNotCollapsible={require('../../assets/icons/close.png')}
       headerContent={
         <Container>
           <ContainerLogo>
-            <Logo source={{}} />
+            <Logo source={require('../../assets/icons/Pokemon-logo.png')} />
           </ContainerLogo>
         </Container>
       }>

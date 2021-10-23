@@ -7,7 +7,12 @@ interface EnhancedListFooterProps {
 
 export const Container = styled.View`
   flex: 1;
-  padding: ${mvs(8)}px ${mvs(16)}px;
+  padding: ${mvs(8)}px;
+`;
+
+export const ContentCard = styled.View`
+  width: ${mvs(200)}px;
+  height: ${mvs(200)}px;
 `;
 
 export const EnhancedListFooter = styled.View<EnhancedListFooterProps>`
