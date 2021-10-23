@@ -1,9 +1,10 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import {StatusBar, SafeAreaView, ViewStyle, StyleProp} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {ThemeProvider} from 'styled-components/native';
 import {Theme} from './styles';
-import Home from './screens/Home';
+import Routes from './routes';
 
 // Keep warnings only in dev. [AR]
 // eslint-disable-next-line no-console
@@ -15,17 +16,19 @@ const styleSafeAreaView: StyleProp<ViewStyle> = {
 
 const src: React.FC = () => {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styleSafeAreaView}>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor={Theme.colors.white}
-        />
-        <ThemeProvider theme={Theme}>
-          <Home />
-        </ThemeProvider>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <SafeAreaView style={styleSafeAreaView}>
+          <StatusBar
+            barStyle="dark-content"
+            backgroundColor={Theme.colors.white}
+          />
+          <ThemeProvider theme={Theme}>
+            <Routes />
+          </ThemeProvider>
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </NavigationContainer>
   );
 };
 

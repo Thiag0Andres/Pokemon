@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import LoadingIndicator from '../../components/LoadingIndicator';
-import Toast from '../../components/Toast';
+import {LoadingIndicator, Toast} from '../';
 import api from '../../services/api';
 
 import {Container, Icon, Title} from './styles';
@@ -11,7 +10,7 @@ interface Props {
 
 const CardPokemon: React.FC<Props> = ({pokemonName}: Props) => {
   const [pokemon, setPokemon] = useState<any>();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const getPokemon = useCallback(() => {
     setLoading(true);

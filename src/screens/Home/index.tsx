@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
-import CardPokemon from '../../components/CardPokemon';
-import LoadingIndicator from '../../components/LoadingIndicator';
-import Toast from '../../components/Toast';
+import {CardPokemon, LoadingIndicator, Toast} from '../../components';
 import {ON_END_REACHED_THRESHOLD} from '../../constants/paginations-options';
 import api from '../../services/api';
 
@@ -10,9 +8,9 @@ import {Container, EnhancedListFooter} from './styles';
 
 const Home: React.FC = () => {
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [skip, setSkip] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [hasNext, setHasNext] = useState(true);
+  const [skip, setSkip] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [hasNext, setHasNext] = useState<boolean>(true);
 
   const getPokemons = (skipPage: number) => {
     setLoading(true);
