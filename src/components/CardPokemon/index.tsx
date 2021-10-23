@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {LoadingIndicator, Toast} from '../';
 import api from '../../services/api';
+import ModalMoreDetails from '../ModalMoreDetails';
 import * as Types from './pokemonTypes';
 import {Container, ContainerTypes, ContentType, Icon, Title} from './styles';
 
@@ -11,6 +12,7 @@ interface Props {
 const CardPokemon: React.FC<Props> = ({pokemonName}: Props) => {
   const [pokemon, setPokemon] = useState<any>();
   const [loading, setLoading] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const getPokemon = useCallback(() => {
     setLoading(true);
@@ -75,7 +77,7 @@ const CardPokemon: React.FC<Props> = ({pokemonName}: Props) => {
 
   return (
     <>
-      <Container onPress={() => {}}>
+      <Container onPress={() => setShowModal(true)}>
         {loading ? (
           <LoadingIndicator />
         ) : (
@@ -102,6 +104,11 @@ const CardPokemon: React.FC<Props> = ({pokemonName}: Props) => {
           </>
         )}
       </Container>
+      <ModalMoreDetails
+        isVisible={showModal}
+        onHide={() => setShowModal(false)}
+        data={pokemon}
+      />
     </>
   );
 };

@@ -19,6 +19,7 @@ export const InputContainer = styled.View<InputProps>`
     ${({theme, error}) => (error ? theme.colors.red : theme.colors.grey)};
   background: rgba(255, 255, 255, 0.8);
   max-height: ${ms(110)}px;
+  border-radius: ${mvs(4)}px;
 `;
 
 export const Input = styled.TextInput.attrs(({theme}) => ({
@@ -31,6 +32,7 @@ export const Input = styled.TextInput.attrs(({theme}) => ({
   padding: ${s(12)}px;
   font-family: SegoeUI-Semibold;
   font-style: normal;
+  border-radius: ${mvs(4)}px;
 `;
 
 export const TouchableIconContainer = styled.TouchableOpacity`

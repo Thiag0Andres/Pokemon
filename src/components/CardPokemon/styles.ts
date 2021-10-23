@@ -9,6 +9,7 @@ export const Container = styled.TouchableOpacity`
   justify-content: center;
   aspect-ratio: 1;
   padding: ${mvs(12)}px;
+  border-radius: ${mvs(4)}px;
 `;
 export const ContainerTypes = styled.View`
   margin-top: ${mvs(10)}px;
