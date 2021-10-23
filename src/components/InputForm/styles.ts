@@ -16,16 +16,16 @@ export const InputContainer = styled.View<InputProps>`
   align-items: center;
   width: 100%;
   border: 1px solid
-    ${({theme, error}) => (error ? theme.colors.red : theme.colors.dark_grey)};
+    ${({theme, error}) => (error ? theme.colors.red : theme.colors.grey)};
   background: rgba(255, 255, 255, 0.8);
   max-height: ${ms(110)}px;
 `;
 
 export const Input = styled.TextInput.attrs(({theme}) => ({
-  placeholderTextColor: theme.colors.light_grey,
+  placeholderTextColor: theme.colors.grey,
 }))`
   flex: 1;
-  color: ${({theme}) => theme.colors.grey};
+  color: ${({theme}) => theme.colors.dark_grey};
   font-size: ${ms(14)}px;
   font-weight: 300;
   padding: ${s(12)}px;

@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           setLoading(false);
         }
       })
-      .catch(error => {
+      .catch(() => {
         setLoading(false);
         Toast.show('Erro ao carregar a listagem');
       });
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
     setLoading(true);
     api
       .get(`/pokemon/${searchText}`)
-      .then(response => {
+      .then((response: any) => {
         if (response.status === 200) {
           setPokemon(response.data.name);
           setLoading(false);

@@ -10,6 +10,17 @@ export const Container = styled.TouchableOpacity`
   aspect-ratio: 1;
   padding: ${mvs(12)}px;
 `;
+export const ContainerTypes = styled.View`
+  margin-top: ${mvs(10)}px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const ContentType = styled.View`
+  align-items: center;
+  justify-content: center;
+`;
 
 export const Icon = styled.Image`
   height: ${mvs(100)}px;

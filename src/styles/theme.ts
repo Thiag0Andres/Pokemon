@@ -10,11 +10,11 @@ const defaultColors = {
   blue_dark: '#152F4F',
   body: '#f8f8f9',
   blue_project: ' #2C5A92',
-  grey: '#777',
+  grey: '#999',
   background: '#f8f9fa',
   white: '#fff',
   light_grey: '#d6d6d6',
-  dark_grey: '#ffffff1a',
+  dark_grey: '#777',
   transparent: 'transparent',
 };
 
