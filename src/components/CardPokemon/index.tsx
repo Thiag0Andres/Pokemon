@@ -15,19 +15,21 @@ const CardPokemon: React.FC<Props> = ({pokemonName}: Props) => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const getPokemon = useCallback(() => {
-    setLoading(true);
-    api
-      .get(`/pokemon/${pokemonName}`)
-      .then(response => {
-        if (response.status === 200) {
-          setPokemon(response.data);
+    if (pokemonName !== '') {
+      setLoading(true);
+      api
+        .get(`/pokemon/${pokemonName}`)
+        .then(response => {
+          if (response.status === 200) {
+            setPokemon(response.data);
+            setLoading(false);
+          }
+        })
+        .catch(error => {
           setLoading(false);
-        }
-      })
-      .catch(error => {
-        setLoading(false);
-        Toast.show(error.response.data.ErrorMessage);
-      });
+          Toast.show(error.response.data.ErrorMessage);
+        });
+    }
   }, [pokemonName]);
 
   useEffect(() => {

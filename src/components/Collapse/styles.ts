@@ -27,7 +27,7 @@ export const Button = styled.TouchableOpacity`
 
 export const ToggleButton = styled(Button)<ButtonProps>`
   ${({hiddenPaddingButton}) =>
-    !hiddenPaddingButton && `padding-horizontal: ${mvs(16)}px`};
+    !hiddenPaddingButton && `padding-horizontal: ${mvs(15)}px`};
   align-items: center;
   justify-content: center;
 `;

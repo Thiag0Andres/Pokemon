@@ -31,7 +31,8 @@ export const Icon = styled.Image`
 
 export const Title = styled.Text`
   font-size: ${ms(16)}px;
-  color: ${({theme}) => theme.colors.purple};
+  color: ${({theme}) => theme.colors.blue_project};
+  font-weight: 600;
   text-transform: capitalize;
   text-align: center;
 `;

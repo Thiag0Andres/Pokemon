@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-native-modal';
+
 import {
   ContentModal,
   HeaderModal,
@@ -44,7 +45,9 @@ const ModalMoreDetails: React.FC<Props> = ({
         />
         <Row>
           <IconPokeBall source={require('../../assets/icons/pokebola.png')} />
-          <TitleModal>{data ? ' ' + data.id + ' ' + data.name : ''}</TitleModal>
+          <TitleModal>
+            {data ? ' ' + ('000' + data.id).slice(-3) + ' ' + data.name : ''}
+          </TitleModal>
         </Row>
 
         <Row>
@@ -63,7 +66,7 @@ const ModalMoreDetails: React.FC<Props> = ({
             {data &&
               data.types.map((typeIndex: any, index: number) => (
                 <>
-                  {index !== 0 && <Text> / </Text>}
+                  {index !== 0 && <Text key={index}> / </Text>}
                   <Text key={typeIndex.type.name}>{typeIndex.type.name}</Text>
                 </>
               ))}

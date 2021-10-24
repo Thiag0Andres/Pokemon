@@ -10,10 +10,11 @@ import {
 } from './styles';
 
 interface Props {
+  searchText: string;
   setSearchText: any;
 }
 
-const Header: React.FC<Props> = ({setSearchText}: Props) => {
+const Header: React.FC<Props> = ({searchText, setSearchText}: Props) => {
   const [textInput, setTextInput] = useState<string>('');
 
   const handleChangeText = useCallback(() => {
@@ -24,9 +25,9 @@ const Header: React.FC<Props> = ({setSearchText}: Props) => {
     <ContainerCollapsed>
       <Row>
         <InputForm
-          placeholder="Digite o nome do Pokémon"
+          placeholder="Digite o nome do Pokémon ou o Id"
           textInputProps={{
-            value: textInput,
+            value: searchText,
           }}
           onValueChange={text => setTextInput(text)}
           icon={require('../../assets/icons/search.png')}
